@@ -1225,8 +1225,10 @@ async def get_current_user() -> dict:
 if __name__ == "__main__":
     # Use streamable-http when PORT is set (Railway / remote hosting).
     # Fall back to stdio for Claude Desktop and local MCP clients.
+    
     if os.environ.get("PORT"):
         port = int(os.environ["PORT"])
-        mcp.run(transport="streamable-http")
+        mcp.run(transport="sse", host="0.0.0.0", port=port)
     else:
         mcp.run(transport="stdio")
+   

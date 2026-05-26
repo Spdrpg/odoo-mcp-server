@@ -1227,8 +1227,9 @@ if __name__ == "__main__":
     # Fall back to stdio for Claude Desktop and local MCP clients.
     
     if os.environ.get("PORT"):
-        port = int(os.environ["PORT"])
-        mcp.run(transport="sse", host="0.0.0.0", port=port)
-    else:
-        mcp.run(transport="stdio")
+    port = int(os.environ["PORT"])
+    import uvicorn
+    uvicorn.run(mcp.sse_app(), host="0.0.0.0", port=port)
+else:
+    mcp.run(transport="stdio")
    

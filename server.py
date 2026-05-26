@@ -1226,6 +1226,6 @@ if __name__ == "__main__":
     if os.environ.get("PORT"):
         port = int(os.environ["PORT"])
         import uvicorn
-        uvicorn.run(mcp.sse_app(), host="0.0.0.0", port=port)
+        uvicorn.run(mcp.streamable_http_app(), host="0.0.0.0", port=port)
     else:
         mcp.run(transport="stdio")

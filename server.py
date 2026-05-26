@@ -1226,6 +1226,6 @@ if __name__ == "__main__":
     # Fall back to stdio for Claude Desktop and local MCP clients.
     if os.environ.get("PORT"):
         port = int(os.environ["PORT"])
-        mcp.run(transport="streamable-http", host="0.0.0.0", port=port)
+        mcp.run(transport="streamable-http")
     else:
         mcp.run(transport="stdio")

@@ -1,3 +1,4 @@
+# v2
 """
 Odoo 18 MCP Server — FastMCP with Streamable HTTP transport.
 

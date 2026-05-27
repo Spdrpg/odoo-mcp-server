@@ -1,12 +1,14 @@
 import os
 import sys
 
-# Pass transport args automatically from env
+os.environ["MCP_ALLOWED_HOSTS"] = "*"
+os.environ["MCP_ALLOW_REMOTE_HTTP"] = "1"
+
 sys.argv = [
     "odoo-mcp",
     "--transport", "streamable-http",
     "--host", "0.0.0.0",
-    "--port", str(os.environ.get("PORT", "8000")),
+    "--port", str(os.environ.get("PORT", "8001")),
     "--allow-remote-http"
 ]
 
